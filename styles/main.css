@@ -379,11 +379,8 @@ body {
 
 .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
-    max-width: 1000px;
-    margin: 0 auto;
 }
 
 .service-card {
@@ -1073,10 +1070,9 @@ body {
 
 .values-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
-    max-width: 900px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -2377,14 +2373,8 @@ body {
     
     .section-subtitle {
         font-size: 1rem;
-    }    /* Services */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1.5rem;
     }
-    
-    /* About Section */
+      /* About Section */
     .about-hero-content {
         grid-template-columns: 1fr;
         gap: 2.5rem;
@@ -2428,10 +2418,9 @@ body {
     }
     
     .values-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 2rem;
         padding: 0 1rem;
-        max-width: 700px;
     }
     
     .value-card {
@@ -2450,6 +2439,12 @@ body {
     
     .value-card p {
         font-size: 0.95rem;
+    }
+    
+    /* Services */
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
     }
     
     /* Products */
@@ -2685,13 +2680,10 @@ body {
         font-size: 1.1rem;
         margin: 0.75rem 0;
     }
-      /* Grid responsivo compacto */
-    .products-grid,
-    .graphics-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
     
+    /* Grid responsivo compacto */
+    .products-grid,
+    .graphics-grid,
     .services-grid {
         grid-template-columns: 1fr;
         gap: 1rem;
@@ -2926,19 +2918,14 @@ body {
     .section-title {
         font-size: 2rem;
     }
-      /* Grids em duas colunas para landscape */
-    .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
-        gap: 1.5rem;
-    }
     
+    /* Grids em duas colunas para landscape */
+    .services-grid,
     .products-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 1.5rem;
     }
-    
-    .about-achievements {
+      .about-achievements {
         grid-template-columns: repeat(3, 1fr);
         gap: 1rem;
         max-width: 600px;
