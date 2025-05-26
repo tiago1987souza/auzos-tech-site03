@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Produtos Gráficos AZUOS TECH</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&family=Orbitron:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div style="padding: 2rem;">
+        <h1>Teste - Produtos Gráficos</h1>
+        
+        <!-- Graphics Products Section -->
+        <section class="graphics-products" id="graphics">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Produtos Gráficos</h2>
+                    <p class="section-subtitle">Impressões de alta qualidade para sua marca</p>
+                </div>
+                
+                <div class="graphics-filters">
+                    <button class="filter-btn active" onclick="filterGraphics('all')">Todos</button>
+                    <button class="filter-btn" onclick="filterGraphics('cartoes')">Cartões</button>
+                    <button class="filter-btn" onclick="filterGraphics('banners')">Banners</button>
+                    <button class="filter-btn" onclick="filterGraphics('adesivos')">Adesivos</button>
+                    <button class="filter-btn" onclick="filterGraphics('etiquetas')">Etiquetas</button>
+                    <button class="filter-btn" onclick="filterGraphics('impressos')">Impressos</button>
+                    <button class="filter-btn" onclick="filterGraphics('embalagens')">Embalagens</button>
+                    <button class="filter-btn" onclick="filterGraphics('decoracao')">Decoração</button>
+                    <button class="filter-btn" onclick="filterGraphics('outros')">Outros</button>
+                </div>
+                
+                <div class="graphics-grid" id="graphics-grid">
+                    <!-- Products will be loaded here by JavaScript -->
+                    <p style="color: white; text-align: center; padding: 2rem;">Carregando produtos...</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Include Cart and Graphics JavaScript -->
+    <script src="js/cart.js"></script>
+    <script src="js/graphics.js"></script>
+    <script src="js/main.js"></script>
+    
+    <script>
+        // Test script to debug
+        console.log('🧪 Página de teste carregada');
+        console.log('📦 GraphicsProducts array:', typeof graphicsProducts !== 'undefined' ? graphicsProducts.length : 'não definido');
+        console.log('🔧 Função loadGraphicsProducts:', typeof loadGraphicsProducts);
+        
+        // Force load graphics after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('🎯 DOM carregado, forçando carregamento de produtos...');
+            if (typeof loadGraphicsProducts === 'function') {
+                loadGraphicsProducts();
+            } else {
+                console.error('❌ Função loadGraphicsProducts não encontrada');
+            }
+        });
+    </script>
+</body>
+</html>

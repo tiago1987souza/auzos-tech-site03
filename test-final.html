@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUOS TECH - Teste Final Gráficos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        .status-panel {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #1a1a1a;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            z-index: 10000;
+            min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .status-title {
+            color: #00d4ff;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        .status-item {
+            margin: 5px 0;
+            padding: 3px 0;
+        }
+        .success { color: #4ade80; }
+        .error { color: #f87171; }
+        .warning { color: #fbbf24; }
+        .info { color: #60a5fa; }
+        
+        /* Quick scroll to graphics */
+        .quick-nav {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 10000;
+        }
+        .quick-nav button {
+            background: #7c3aed;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            box-shadow: 0 4px 20px rgba(124, 58, 237, 0.3);
+            transition: all 0.3s;
+        }
+        .quick-nav button:hover {
+            background: #5b21b6;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(124, 58, 237, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <!-- Status Panel -->
+    <div class="status-panel" id="status-panel">
+        <div class="status-title">🔍 STATUS PRODUTOS GRÁFICOS</div>
+        <div id="status-log"></div>
+    </div>
+
+    <!-- Quick Navigation -->
+    <div class="quick-nav">
+        <button onclick="scrollToGraphics()">
+            📦 Ver Produtos Gráficos
+        </button>
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-rocket"></i> AZUOS TECH</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre Nós</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#products" class="nav-link">Produtos</a>
+                    <a href="#graphics" class="nav-link">Gráficos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                    <div class="cart-icon" onclick="toggleCart()">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section simplificada -->
+    <section class="hero" id="home" style="padding: 100px 0; background: linear-gradient(135deg, #1a1a1a 0%, #2d1b69 100%);">
+        <div style="text-align: center; color: white;">
+            <h1 style="font-size: 3rem; margin-bottom: 20px;">🧪 TESTE FINAL</h1>
+            <p style="font-size: 1.2rem; opacity: 0.8;">Verificação completa da seção de produtos gráficos</p>
+            <button onclick="scrollToGraphics()" style="background: #7c3aed; color: white; border: none; padding: 15px 30px; border-radius: 25px; font-size: 1.1rem; margin-top: 20px; cursor: pointer;">
+                🚀 Ir para Produtos Gráficos
+            </button>
+        </div>
+    </section>
+
+    <!-- Graphics Products Section - SEÇÃO PRINCIPAL -->
+    <section class="graphics-products" id="graphics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produtos Gráficos</h2>
+                <p class="section-subtitle">Impressões de alta qualidade para sua marca</p>
+            </div>
+            
+            <div class="graphics-filters">
+                <button class="filter-btn active" onclick="filterGraphics('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGraphics('cartoes')">Cartões</button>
+                <button class="filter-btn" onclick="filterGraphics('banners')">Banners</button>
+                <button class="filter-btn" onclick="filterGraphics('adesivos')">Adesivos</button>
+                <button class="filter-btn" onclick="filterGraphics('etiquetas')">Etiquetas</button>
+                <button class="filter-btn" onclick="filterGraphics('impressos')">Impressos</button>
+                <button class="filter-btn" onclick="filterGraphics('embalagens')">Embalagens</button>
+                <button class="filter-btn" onclick="filterGraphics('decoracao')">Decoração</button>
+                <button class="filter-btn" onclick="filterGraphics('outros')">Outros</button>
+            </div>
+            
+            <div class="graphics-grid" id="graphics-grid">
+                <div style="text-align: center; color: white; padding: 40px;">
+                    <div style="font-size: 2rem; margin-bottom: 10px;">⏳</div>
+                    <p>Carregando produtos gráficos...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section simplificada -->
+    <section class="contact" id="contact" style="padding: 100px 0; background: #0a0a0a;">
+        <div style="text-align: center; color: white;">
+            <h2 style="font-size: 2.5rem; margin-bottom: 20px;">✅ Teste Concluído</h2>
+            <p style="font-size: 1.1rem; opacity: 0.8;">Verificação da seção de produtos gráficos finalizada</p>
+        </div>
+    </section>
+
+    <!-- Scripts -->
+    <script>
+        let statusLog = [];
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            statusLog.push({ time: timestamp, message, type });
+            updateStatusPanel();
+            console.log(`[${timestamp}] ${message}`);
+        }
+
+        function updateStatusPanel() {
+            const logElement = document.getElementById('status-log');
+            logElement.innerHTML = statusLog.map(item => 
+                `<div class="status-item ${item.type}">[${item.time}] ${item.message}</div>`
+            ).join('');
+            logElement.scrollTop = logElement.scrollHeight;
+        }
+
+        function scrollToGraphics() {
+            document.getElementById('graphics').scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'start'
+            });
+            log('📍 Navegando para seção de produtos gráficos', 'info');
+        }
+
+        // Testes de inicialização
+        log('🚀 Iniciando teste final da seção de produtos gráficos', 'info');
+
+        // Verificar se elementos existem
+        setTimeout(() => {
+            const graphicsSection = document.getElementById('graphics');
+            const graphicsGrid = document.getElementById('graphics-grid');
+            const graphicsFilters = document.querySelector('.graphics-filters');
+
+            log(graphicsSection ? '✅ Seção #graphics encontrada' : '❌ Seção #graphics NÃO encontrada', 
+                graphicsSection ? 'success' : 'error');
+            
+            log(graphicsGrid ? '✅ Container #graphics-grid encontrado' : '❌ Container #graphics-grid NÃO encontrado', 
+                graphicsGrid ? 'success' : 'error');
+                
+            log(graphicsFilters ? '✅ Filtros .graphics-filters encontrados' : '❌ Filtros .graphics-filters NÃO encontrados', 
+                graphicsFilters ? 'success' : 'error');
+
+            // Verificar CSS
+            if (graphicsSection) {
+                const styles = window.getComputedStyle(graphicsSection);
+                const hasBackground = styles.backgroundColor !== 'rgba(0, 0, 0, 0)';
+                const hasPadding = styles.paddingTop !== '0px';
+                
+                log(hasBackground || hasPadding ? '✅ CSS da seção aplicado' : '⚠️ CSS pode não estar aplicado', 
+                    hasBackground || hasPadding ? 'success' : 'warning');
+            }
+        }, 500);
+
+        // Funções de teste para botões
+        function filterGraphics(category) {
+            log(`🔍 Filtro acionado: ${category}`, 'info');
+            
+            // Destacar botão ativo
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            log(`✅ Filtro ${category} ativado visualmente`, 'success');
+        }
+
+        function toggleCart() {
+            log('🛒 Ação do carrinho acionada', 'info');
+        }
+    </script>
+
+    <!-- Scripts originais -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/graphics.js"></script>
+
+    <script>
+        // Monitoramento final após carregamento dos scripts
+        setTimeout(() => {
+            log('📊 Verificando carregamento dos scripts...', 'info');
+            
+            // Verificar variáveis globais
+            if (typeof graphicsProducts !== 'undefined') {
+                log(`✅ Array graphicsProducts carregado (${graphicsProducts.length} produtos)`, 'success');
+            } else {
+                log('❌ Array graphicsProducts NÃO carregado', 'error');
+            }
+
+            if (typeof loadGraphicsProducts !== 'undefined') {
+                log('✅ Função loadGraphicsProducts disponível', 'success');
+            } else {
+                log('❌ Função loadGraphicsProducts NÃO disponível', 'error');
+            }
+
+            if (typeof filterGraphics !== 'undefined') {
+                log('✅ Função filterGraphics disponível', 'success');
+            } else {
+                log('❌ Função filterGraphics NÃO disponível', 'error');
+            }
+
+            // Verificar produtos carregados na página
+            setTimeout(() => {
+                const productCards = document.querySelectorAll('.graphic-card');
+                log(`📦 Produtos renderizados: ${productCards.length}`, 
+                    productCards.length > 0 ? 'success' : 'warning');
+
+                if (productCards.length === 0) {
+                    log('⚠️ Nenhum produto foi renderizado - verifique console do navegador', 'warning');
+                } else {
+                    log('🎉 SEÇÃO DE PRODUTOS GRÁFICOS FUNCIONANDO!', 'success');
+                }
+            }, 2000);
+        }, 1000);
+    </script>
+</body>
+</html>
