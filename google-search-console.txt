@@ -1,0 +1,15 @@
+User-agent: Googlebot
+Allow: /
+Sitemap: https://www.azuostech.com.br/sitemap.xml
+
+# Tempo de rastreamento para Googlebot
+Crawl-delay: 2
+
+# Permitir que o Googlebot-Image rastreie todas as imagens
+User-agent: Googlebot-Image
+Allow: /IMAGES/
+Allow: /images/
+
+# Configuração de idioma para rastreamento
+User-agent: *
+Allow: /

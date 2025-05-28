@@ -1,14 +1,48 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
+<head>    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AZUOS TECH - Tecnologia e Inovação Digital</title>
+    
+    <!-- Metatags SEO -->
+    <meta name="description" content="Transformamos ideias em realidade digital. Sites futuristas, e-commerce, produtos digitais inovadores e soluções gráficas premium.">
+    <meta name="keywords" content="tecnologia, inovação digital, azuos tech, sites futuristas, e-commerce">
+    <meta name="author" content="AZUOS TECH">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.azuostech.com.br/">
+    <meta property="og:title" content="AZUOS TECH - Tecnologia e Inovação Digital">
+    <meta property="og:description" content="Transformamos ideias em realidade digital. Sites futuristas e soluções digitais de alta performance.">
+    <meta property="og:image" content="https://www.azuostech.com.br/images/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.azuostech.com.br/">
+    <meta property="twitter:title" content="AZUOS TECH - Tecnologia e Inovação Digital">
+    <meta property="twitter:description" content="Transformamos ideias em realidade digital. Sites futuristas e soluções digitais de alta performance.">
+    <meta property="twitter:image" content="https://www.azuostech.com.br/images/twitter-card.jpg">
+    
+    <!-- Pré-carregamento de recursos críticos -->
+    <link rel="preload" href="styles/main.css" as="style">
+    <link rel="preload" href="js/main.js" as="script">
+    <link rel="preload" href="js/webfont-loader.js" as="script">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#7B68EE">
+    <link rel="apple-touch-icon" href="images/icons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/icons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/icons/favicon-16x16.png">
+    
+    <!-- Carregamento rápido de fontes -->
+    <script src="js/webfont-loader.js"></script>
+    
+    <!-- Estilos -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/produto.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'"
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -91,10 +125,26 @@
             
             <div class="about-hero">
                 <div class="about-hero-content">
-                    <div class="about-intro">                        <h3 class="about-hero-title">Inovação e <span class="gradient-text">qualidade premium</span></h3>                        <p class="about-hero-description">
-                            Somos uma empresa de tecnologia especializada em soluções digitais inovadoras. 
-                            Nossa equipe está comprometida em entregar resultados excepcionais que superam as expectativas.
+                    <div class="about-intro">
+                        <h3 class="about-hero-title">Inovação e <span class="gradient-text">qualidade premium</span></h3>                        <p class="about-hero-description">
+                            Somos uma empresa de tecnologia especializada em soluções digitais inovadoras. Nascida em 2025 com foco em inovação,
+                            nossa equipe está comprometida em entregar resultados excepcionais que superam as expectativas.
                         </p>
+                        
+                        <div class="about-achievements">
+                            <div class="achievement-item">
+                                <div class="achievement-number">15+</div>
+                                <div class="achievement-label">Clientes Felizes</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-number">20+</div>
+                                <div class="achievement-label">Projetos Concluídos</div>
+                            </div>
+                            <div class="achievement-item">
+                                <div class="achievement-number">95%</div>
+                                <div class="achievement-label">Taxa de Satisfação</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -119,12 +169,22 @@
                         <p>Excelência em cada pixel e linha de código.</p>
                         <div class="value-highlight"></div>
                     </div>
-                      <div class="value-card">
+                    
+                    <div class="value-card">
                         <div class="value-icon">
                             <i class="fas fa-heart"></i>
                         </div>
                         <h4>Foco no Cliente</h4>
                         <p>Sua satisfação é nossa prioridade número um.</p>
+                        <div class="value-highlight"></div>
+                    </div>
+                    
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Confiabilidade</h4>
+                        <p>Transparência e cumprimento de prazos garantidos.</p>
                         <div class="value-highlight"></div>
                     </div>
                 </div>
@@ -495,11 +555,38 @@
     <!-- Cart Overlay -->
     <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
       <!-- Modal Overlay -->
-    <div class="modal-overlay" id="modal-overlay" onclick="closeCheckoutModal()"></div>
-
-    <!-- Scripts -->
-    <script src="js/cart.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/graphics.js"></script>
+    <div class="modal-overlay" id="modal-overlay" onclick="closeCheckoutModal()"></div>    <!-- Scripts -->
+    <script src="js/main.js" defer></script>
+    <script src="js/cart.js" defer></script>
+    <script src="js/graphics.js" defer></script>
+    
+    <!-- Scripts de otimização -->
+    <script src="js/speed-optimizer.js" defer></script>
+    <script src="js/performance-monitor.js" async></script>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXXXXX'); // Substitua pelo seu ID do GA4
+    </script>
+    
+    <!-- Service Worker Registration -->
+    <script>
+      // Registrar o service worker
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+              console.log('Service Worker registrado com sucesso:', registration.scope);
+            })
+            .catch(error => {
+              console.log('Falha ao registrar Service Worker:', error);
+            });
+        });
+      }
+    </script>
 </body>
 </html>
