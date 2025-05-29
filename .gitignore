@@ -11,3 +11,4 @@ Thumbs.db
 
 # Diretórios de dependências
 node_modules/
+.vercel

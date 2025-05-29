@@ -1,0 +1,101 @@
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.azuostech.com.br/#organization",
+      "name": "AZUOS TECH",
+      "url": "https://www.azuostech.com.br",
+      "sameAs": [
+        "https://www.instagram.com/azuostech/"
+      ],
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://www.azuostech.com.br/#logo",
+        "url": "https://www.azuostech.com.br/images/icons/apple-touch-icon.png",
+        "width": 180,
+        "height": 180,
+        "caption": "AZUOS TECH"
+      },
+      "image": {
+        "@id": "https://www.azuostech.com.br/#logo"
+      },
+      "telephone": "+5551989916919",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "São Paulo",
+        "addressRegion": "SP",
+        "addressCountry": "BR"
+      },
+      "email": "contato@azuostech.com.br",
+      "description": "Tecnologia e Inovação Digital - Transformamos ideias em realidade digital"
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.azuostech.com.br/#website",
+      "url": "https://www.azuostech.com.br",
+      "name": "AZUOS TECH",
+      "publisher": {
+        "@id": "https://www.azuostech.com.br/#organization"
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.azuostech.com.br/search?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.azuostech.com.br/#webpage",
+      "url": "https://www.azuostech.com.br",
+      "inLanguage": "pt-BR",
+      "name": "AZUOS TECH - Tecnologia e Inovação Digital",
+      "isPartOf": {
+        "@id": "https://www.azuostech.com.br/#website"
+      },
+      "about": {
+        "@id": "https://www.azuostech.com.br/#organization"
+      },
+      "description": "Transformamos ideias em realidade digital. Sites futuristas, e-commerce, produtos digitais inovadores e soluções gráficas premium."
+    },
+    {
+      "@type": "Service",
+      "name": "Sites Futuristas",
+      "description": "Desenvolvemos websites modernos e responsivos com design inovador e experiência única do usuário.",
+      "provider": {
+        "@id": "https://www.azuostech.com.br/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "2500",
+        "priceCurrency": "BRL"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Loja E-commerce",
+      "description": "Lojas virtuais completas com sistema de pagamento integrado e gerenciamento avançado.",
+      "provider": {
+        "@id": "https://www.azuostech.com.br/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "4500",
+        "priceCurrency": "BRL"
+      }
+    },
+    {
+      "@type": "Service",
+      "name": "Landing Page",
+      "description": "Páginas de conversão otimizadas para maximizar seus resultados e gerar mais leads.",
+      "provider": {
+        "@id": "https://www.azuostech.com.br/#organization"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "1200",
+        "priceCurrency": "BRL"
+      }
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.azuostech.com.br/sitemap.xml
+
+# Tempo de rastreamento para Googlebot
+User-agent: Googlebot
+Allow: /
+# Removido Crawl-delay para permitir indexação mais rápida
+
+# Otimização para buscadores de imagem
+User-agent: Googlebot-Image
+Allow: /IMAGES/
+Allow: /images/
+
+# Otimização para o Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Bloquear páginas de teste e arquivos desnecessários
+User-agent: *
+Disallow: /test-*.html
+Disallow: /*.bat$
+Disallow: /*.md$
+Disallow: /*.json$

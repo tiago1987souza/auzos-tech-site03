@@ -39,10 +39,36 @@
     <!-- Carregamento rápido de fontes -->
     <script src="js/webfont-loader.js"></script>
     
+    <!-- Structured Data / Schema.org -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "AZUOS TECH",
+      "url": "https://www.azuostech.com.br",
+      "logo": "https://www.azuostech.com.br/images/icons/apple-touch-icon.png",
+      "description": "Tecnologia e Inovação Digital - Transformamos ideias em realidade digital",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+5551989916919",
+        "contactType": "customer service"
+      },
+      "sameAs": [
+        "https://www.instagram.com/azuostech/"
+      ]
+    }
+    </script>
+      <!-- Verificação do Google Search Console -->
+    <meta name="google-site-verification" content="X2ghmTv7HUYQn5NWqAGKkMgT30q2zCkj5TinUB-Sehw" />
+    
+    <!-- Link canônico -->
+    <link rel="canonical" href="https://www.azuostech.com.br/">
+    
     <!-- Estilos -->
     <link rel="stylesheet" href="styles/main.css">
     <link rel="stylesheet" href="styles/produto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" media="print" onload="this.media='all'"
+    <meta name="google-site-verification" content="X2ghmTv7HUYQn5NWqAGKkMgT30q2zCkj5TinUB-Sehw" />
 </head>
 <body>
     <!-- Header/Navigation -->
@@ -364,14 +390,13 @@
                             <h4>WhatsApp</h4>
                             <p>(51) 98991-6919</p>
                         </div>
-                    </div>
-                    <div class="contact-item">
+                    </div>                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>E-mail</h4>
-                            <p>contato@azuostech.com</p>
+                            <p>contato@azuostech.com.br</p>
                         </div>
-                    </div>                </div>
+                    </div></div>
                 <div class="contact-form">
                     <form id="contact-form">
                         <input type="text" placeholder="Seu Nome" required>
@@ -542,7 +567,7 @@
                 </div>                <div class="footer-contact">
                     <h4>Contato</h4>
                     <p><i class="fas fa-phone"></i> (51) 98991-6919</p>
-                    <p><i class="fas fa-envelope"></i> contato@azuostech.com</p>
+                    <p><i class="fas fa-envelope"></i> contato@azuostech.com.br</p>
                     <p><i class="fab fa-whatsapp"></i> (51) 98991-6919</p>
                 </div>
             </div>
