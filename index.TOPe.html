@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUOS TECH - Tecnologia e Inovação Digital</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- Inovação: Adicionando animações e efeitos modernos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header/Navigation -->
+    <header class="header glass-effect" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo animate__animated animate__fadeInDown">
+                    <h2><i class="fas fa-rocket"></i> <span class="gradient-text">AZUOS TECH</span></h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre Nós</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#products" class="nav-link">Produtos</a>
+                    <a href="#graphics" class="nav-link">Gráficos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                    <div class="cart-icon pulse-on-hover" onclick="toggleCart()" aria-label="Abrir carrinho" tabindex="0">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+                <div class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" tabindex="0">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero futuristic-bg" id="home">
+        <div class="hero-background">
+            <canvas id="hero-particles"></canvas>
+        </div>
+        <div class="hero-content animate__animated animate__fadeIn">
+            <div class="hero-text">
+                <h1 class="hero-title neon-text">
+                    <span class="title-highlight">AZUOS TECH</span>
+                    <br><span class="gradient-text">Inovação Digital</span>
+                </h1>
+                <p class="hero-description">
+                    Transformamos ideias em <span class="highlight">realidade digital</span>. Sites futuristas, e-commerce de alta performance, produtos digitais inovadores e soluções gráficas premium.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary glow-on-hover" onclick="scrollToSection('services')">
+                        <i class="fas fa-rocket"></i>
+                        Explorar Serviços
+                    </button>
+                    <button class="btn btn-secondary glass-btn" onclick="scrollToSection('products')">
+                        <i class="fas fa-download"></i>
+                        Ver Produtos
+                    </button>
+                </div>
+            </div>
+            <div class="hero-visual animate__animated animate__zoomIn">
+                <div class="hero-hologram">
+                    <div class="hologram-ring"></div>
+                    <div class="hologram-ring"></div>
+                    <div class="hologram-ring"></div>
+                    <div class="hologram-center">
+                        <i class="fas fa-microchip"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll bounce">
+            <div class="scroll-indicator">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="about-us glass-effect" id="about">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInLeft">
+                <h2 class="section-title">Sobre Nós</h2>
+                <p class="section-subtitle">Transformando ideias em <span class="gradient-text">realidade digital</span></p>
+            </div>
+            <div class="about-hero">
+                <div class="about-hero-content">
+                    <div class="about-intro">
+                        <h3 class="about-hero-title">Inovação e <span class="gradient-text">qualidade premium</span></h3>
+                        <p class="about-hero-description">
+                            Somos uma empresa de tecnologia especializada em soluções digitais inovadoras. Com mais de <b>4 anos</b> de experiência, nossa equipe entrega resultados excepcionais que superam expectativas.
+                        </p>
+                        <div class="about-achievements">
+                            <div class="achievement-item animate__animated animate__fadeInUp">
+                                <div class="achievement-number">150+</div>
+                                <div class="achievement-label">Clientes Felizes</div>
+                            </div>
+                            <div class="achievement-item animate__animated animate__fadeInUp" style="animation-delay:0.2s;">
+                                <div class="achievement-number">450+</div>
+                                <div class="achievement-label">Projetos Concluídos</div>
+                            </div>
+                            <div class="achievement-item animate__animated animate__fadeInUp" style="animation-delay:0.4s;">
+                                <div class="achievement-number">95%</div>
+                                <div class="achievement-label">Taxa de Satisfação</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="about-values">
+                <h3 class="values-title">Nossos Diferenciais</h3>
+                <div class="values-grid">
+                    <div class="value-card hover-lift">
+                        <div class="value-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h4>Inovação</h4>
+                        <p>Soluções tecnológicas de ponta para cada desafio.</p>
+                        <div class="value-highlight"></div>
+                    </div>
+                    <div class="value-card hover-lift">
+                        <div class="value-icon">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <h4>Qualidade Premium</h4>
+                        <p>Excelência em cada pixel e linha de código.</p>
+                        <div class="value-highlight"></div>
+                    </div>
+                    <div class="value-card hover-lift">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h4>Foco no Cliente</h4>
+                        <p>Sua satisfação é nossa prioridade número um.</p>
+                        <div class="value-highlight"></div>
+                    </div>
+                    <div class="value-card hover-lift">
+                        <div class="value-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Confiabilidade</h4>
+                        <p>Transparência e cumprimento de prazos garantidos.</p>
+                        <div class="value-highlight"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services futuristic-bg" id="services">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInRight">
+                <h2 class="section-title">Nossos Serviços</h2>
+                <p class="section-subtitle">Soluções tecnológicas de ponta para impulsionar seu negócio</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card hover-lift" data-aos="fade-up">
+                    <div class="service-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Sites Futuristas</h3>
+                    <p>Websites modernos e responsivos com design inovador e experiência única do usuário.</p>
+                    <div class="service-features">
+                        <span>Design Responsivo</span>
+                        <span>SEO Otimizado</span>
+                        <span>Performance Alta</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="addToCart('site-futurista', 'Site Futurista', 2500)">
+                        A partir de R$ 2.500
+                    </button>
+                </div>
+                <div class="service-card hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h3>Loja E-commerce</h3>
+                    <p>Lojas virtuais completas com sistema de pagamento integrado e gerenciamento avançado.</p>
+                    <div class="service-features">
+                        <span>Pagamentos Seguros</span>
+                        <span>Gestão Completa</span>
+                        <span>Mobile First</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="addToCart('ecommerce', 'Loja E-commerce', 4500)">
+                        A partir de R$ 4.500
+                    </button>
+                </div>
+                <div class="service-card hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Landing Page</h3>
+                    <p>Páginas de conversão otimizadas para maximizar seus resultados e gerar mais leads.</p>
+                    <div class="service-features">
+                        <span>Alta Conversão</span>
+                        <span>Load Rápido</span>
+                        <span>A/B Testing</span>
+                    </div>
+                    <button class="btn btn-outline" onclick="addToCart('landing-page', 'Landing Page', 1200)">
+                        A partir de R$ 1.200
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Products Section -->
+    <section class="digital-products glass-effect" id="products">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInLeft">
+                <h2 class="section-title">Produtos Digitais</h2>
+                <p class="section-subtitle">Conteúdo premium para acelerar seu aprendizado e negócio</p>
+            </div>
+            <div class="products-grid">
+                <!-- Produto 1: Marketing Digital Alta Performance -->
+                <div class="product-card hover-lift" data-aos="fade-up">
+                    <div class="product-image">
+                        <img src="IMAGES/MARKETING-DIGITAL-ALTA-PERFORMANCE.jpg" alt="Marketing Digital Alta Performance" class="responsive-img">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-badge pulse">🔥 MAIS VENDIDO</div>
+                        <h3>Marketing Digital Alta Performance</h3>
+                        <p>Método completo e testado para dominar o marketing digital. Seja você empreendedor, empregador ou empregado, este curso vai abrir muitas oportunidades de sucesso no mundo digital.</p>
+                        <div class="product-highlights">
+                            <ul>
+                                <li><i class="fas fa-check"></i> 80+ aulas em vídeo HD</li>
+                                <li><i class="fas fa-check"></i> Planilhas e templates exclusivos</li>
+                                <li><i class="fas fa-check"></i> Suporte direto com especialistas</li>
+                                <li><i class="fas fa-check"></i> Certificado de conclusão</li>
+                                <li><i class="fas fa-check"></i> Acesso vitalício</li>
+                            </ul>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-old">De R$ 6.997</span>
+                            <span class="price">R$ 4.200</span>
+                            <span class="discount">40% OFF</span>
+                        </div>
+                        <button class="btn btn-primary btn-centered glow-on-hover" onclick="addToCartWithQuantity('marketing-digital', 'Marketing Digital Alta Performance', 4200)">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+                <!-- Produto 2: Headset Gamer -->
+                <div class="product-card hover-lift" data-aos="fade-up" data-aos-delay="200">
+                    <div class="product-image">
+                        <img src="IMAGES/HEAD-SET.jpg" alt="Fortrek H2 Headset Gamer" class="responsive-img">
+                    </div>
+                    <div class="product-content">
+                        <div class="product-badge">✨ PREMIUM</div>
+                        <h3>Fortrek H2 - Headset Gamer Pro</h3>
+                        <p>Headset gamer profissional com design ergonômico, microfone de alta sensibilidade e drivers de áudio premium. Ideal para gaming, streaming e trabalho remoto com qualidade excepcional.</p>
+                        <div class="product-highlights">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Drivers de 50mm premium</li>
+                                <li><i class="fas fa-check"></i> Microfone removível com cancelamento de ruído</li>
+                                <li><i class="fas fa-check"></i> Almofadas em couro sintético</li>
+                                <li><i class="fas fa-check"></i> Iluminação LED RGB customizável</li>
+                                <li><i class="fas fa-check"></i> Cabo trançado de 2,5m</li>
+                            </ul>
+                        </div>
+                        <div class="product-price">
+                            <span class="price-old">De R$ 549</span>
+                            <span class="price">R$ 369</span>
+                            <span class="discount">33% OFF</span>
+                        </div>
+                        <button class="btn btn-primary btn-centered glow-on-hover" onclick="addToCartWithQuantity('headset-gamer', 'Fortrek H2 - Headset Gamer Pro', 369)">
+                            <i class="fas fa-cart-plus"></i> Adicionar ao Carrinho
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Graphics Products Section -->
+    <section class="graphics-products futuristic-bg" id="graphics">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInRight">
+                <h2 class="section-title">Produtos Gráficos</h2>
+                <p class="section-subtitle">Impressões de alta qualidade para sua marca</p>
+            </div>
+            <div class="graphics-filters">
+                <button class="filter-btn active" onclick="filterGraphics('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGraphics('cartoes')">Cartões</button>
+                <button class="filter-btn" onclick="filterGraphics('banners')">Banners</button>
+                <button class="filter-btn" onclick="filterGraphics('adesivos')">Adesivos</button>
+                <button class="filter-btn" onclick="filterGraphics('etiquetas')">Etiquetas</button>
+                <button class="filter-btn" onclick="filterGraphics('impressos')">Impressos</button>
+                <button class="filter-btn" onclick="filterGraphics('embalagens')">Embalagens</button>
+                <button class="filter-btn" onclick="filterGraphics('decoracao')">Decoração</button>
+                <button class="filter-btn" onclick="filterGraphics('outros')">Outros</button>
+            </div>
+            <div class="graphics-grid" id="graphics-grid">
+                <!-- Products will be loaded here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact glass-effect" id="contact">
+        <div class="container">
+            <div class="section-header animate__animated animate__fadeInLeft">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">Vamos transformar suas ideias em realidade digital</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefone</h4>
+                            <p>(51) 98991-6919</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p>(51) 98991-6919</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>E-mail</h4>
+                            <p>contato@azuostech.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contact-form">
+                        <input type="text" placeholder="Seu Nome" required>
+                        <input type="email" placeholder="Seu E-mail" required>
+                        <input type="tel" placeholder="Seu Telefone">
+                        <textarea placeholder="Sua Mensagem" rows="5" required></textarea>
+                        <button type="submit" class="btn btn-primary glow-on-hover">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cart Sidebar -->
+    <div class="cart-sidebar glass-effect" id="cart-sidebar">
+        <div class="cart-header">
+            <h3><i class="fas fa-shopping-cart"></i> Carrinho</h3>
+            <button class="cart-close" onclick="toggleCart()" title="Fechar carrinho">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Cart items will be displayed here -->
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <div class="cart-summary">
+                    <div class="cart-summary-row">
+                        <span class="cart-items-count">0 itens</span>
+                        <span class="cart-total-amount">R$ <span id="cart-total">0,00</span></span>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-actions">
+                <button class="btn btn-secondary" onclick="cartManager.clearCart()" title="Limpar carrinho">
+                    <i class="fas fa-trash"></i>
+                    Limpar Carrinho
+                </button>
+                <button class="btn btn-primary cart-checkout glow-on-hover" onclick="proceedToCheckout()">
+                    <i class="fas fa-credit-card"></i>
+                    Finalizar Compra
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal glass-effect" id="checkout-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-credit-card"></i> Finalizar Compra</h3>
+                <button class="modal-close" onclick="closeCheckoutModal()" title="Fechar">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="checkout-steps">
+                    <div class="step active" data-step="1">
+                        <span>1</span> Dados
+                    </div>
+                    <div class="step" data-step="2">
+                        <span>2</span> Pagamento
+                    </div>
+                    <div class="step" data-step="3">
+                        <span>3</span> Confirmação
+                    </div>
+                </div>
+                <div class="checkout-content">
+                    <div class="checkout-step" id="step-1">
+                        <h4>Dados do Cliente</h4>
+                        <form id="checkout-form">
+                            <input type="text" placeholder="Nome Completo" required>
+                            <input type="email" placeholder="E-mail" required>
+                            <input type="tel" placeholder="Telefone" required>
+                            <input type="text" placeholder="CPF" required>
+                        </form>
+                        <button class="btn btn-primary glow-on-hover" onclick="nextStep(2)">
+                            Continuar <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                    <div class="checkout-step hidden" id="step-2">
+                        <h4>Pagamento via PIX</h4>
+                        <div class="pix-info">
+                            <div class="pix-qr">
+                                <i class="fas fa-qrcode"></i>
+                                <p>QR Code PIX</p>
+                            </div>
+                            <div class="pix-details">
+                                <h5>Chave PIX (CPF):</h5>
+                                <div class="pix-key">
+                                    <input type="text" value="011.901.490-44" readonly id="pix-key" title="Chave PIX" placeholder="Chave PIX">
+                                    <button onclick="copyPixKey()" class="btn-copy" title="Copiar chave PIX">
+                                        <i class="fas fa-copy"></i>
+                                    </button>
+                                </div>
+                                <div class="pix-holder">
+                                    <p><strong>Titular:</strong> TIAGO DA S SOUZA</p>
+                                    <p><strong>CPF:</strong> 011.901.490-44</p>
+                                </div>
+                                <div class="payment-instructions">
+                                    <h5>Como pagar:</h5>
+                                    <ol>
+                                        <li>Copie a chave PIX acima</li>
+                                        <li>Abra o app do seu banco</li>
+                                        <li>Faça o pagamento PIX</li>
+                                        <li>Envie o comprovante via WhatsApp</li>
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary glow-on-hover" onclick="nextStep(3)">
+                            Pagamento Realizado <i class="fas fa-check"></i>
+                        </button>
+                    </div>
+                    <div class="checkout-step hidden" id="step-3">
+                        <h4>Envie o Comprovante</h4>
+                        <div class="whatsapp-info">
+                            <div class="whatsapp-contact">
+                                <i class="fab fa-whatsapp"></i>
+                                <div>
+                                    <h5>WhatsApp AZUOS TECH</h5>
+                                    <p>(51) 98991-6919</p>
+                                </div>
+                            </div>
+                            <p>Envie o comprovante de pagamento junto com o número do pedido:</p>
+                            <div class="order-number">
+                                <strong>Pedido: #<span id="order-number"></span></strong>
+                            </div>
+                            <a href="https://wa.me/5551989916919" target="_blank" rel="noopener" class="btn btn-whatsapp glow-on-hover">
+                                <i class="fab fa-whatsapp"></i>
+                                Enviar no WhatsApp
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer futuristic-bg">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand animate__animated animate__fadeInLeft">
+                    <h3><i class="fas fa-rocket"></i> <span class="gradient-text">AZUOS TECH</span></h3>
+                    <p>Transformando ideias em realidade digital com tecnologia de ponta e design inovador.</p>
+                    <div class="social-links">
+                        <a href="#" title="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="https://instagram.com/azuostech" target="_blank" rel="noopener" title="Instagram @azuostech"><i class="fab fa-instagram"></i></a>
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <h4>Serviços</h4>
+                    <ul>
+                        <li><a href="#services">Sites Futuristas</a></li>
+                        <li><a href="#services">E-commerce</a></li>
+                        <li><a href="#services">Landing Pages</a></li>
+                        <li><a href="#products">Produtos Digitais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Produtos</h4>
+                    <ul>
+                        <li><a href="#products">Cursos Online</a></li>
+                        <li><a href="#products">E-books</a></li>
+                        <li><a href="#products">Templates</a></li>
+                        <li><a href="#graphics">Produtos Gráficos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>Contato</h4>
+                    <p><i class="fas fa-phone"></i> (51) 98991-6919</p>
+                    <p><i class="fas fa-envelope"></i> contato@azuostech.com</p>
+                    <p><i class="fab fa-whatsapp"></i> (51) 98991-6919</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 AZUOS TECH. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart Overlay -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay" onclick="closeCheckoutModal()"></div>
+
+    <!-- Scripts -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/graphics.js"></script>
+    <!-- Inovação: Script para partículas futuristas no hero -->
+    <style>
+        /* Adicione este bloco ao seu CSS principal */
+        .graphics-product-description {
+            font-size: 1.25rem !important;
+            color: #fff !important;
+            font-weight: 600;
+            letter-spacing: 0.01em;
+            text-shadow: 0 1px 8px #222, 0 0 2px #00fff7;
+        }
+    </style>
+    <script>
+    // Pequeno efeito de partículas para o hero (exemplo simples)
+    window.addEventListener('DOMContentLoaded', () => {
+        const canvas = document.getElementById('hero-particles');
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        let w = canvas.width = window.innerWidth;
+        let h = canvas.height = 400;
+        let particles = [];
+        for (let i = 0; i < 60; i++) {
+            particles.push({
+                x: Math.random() * w,
+                y: Math.random() * h,
+                r: Math.random() * 2 + 1,
+                dx: (Math.random() - 0.5) * 0.7,
+                dy: (Math.random() - 0.5) * 0.7
+            });
+        }
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            for (let p of particles) {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, 2 * Math.PI);
+                ctx.fillStyle = 'rgba(0,255,255,0.7)';
+                ctx.shadowColor = '#00fff7';
+                ctx.shadowBlur = 8;
+                ctx.fill();
+                p.x += p.dx;
+                p.y += p.dy;
+                if (p.x < 0 || p.x > w) p.dx *= -1;
+                if (p.y < 0 || p.y > h) p.dy *= -1;
+            }
+            requestAnimationFrame(draw);
+        }
+        draw();
+        window.addEventListener('resize', () => {
+            w = canvas.width = window.innerWidth;
+            h = canvas.height = 400;
+        });
+    });
+
+    // Torna as descrições dos produtos gráficos maiores e mais brancas
+    document.addEventListener('DOMContentLoaded', function () {
+        // Aguarda o carregamento dos produtos gráficos
+        const observer = new MutationObserver(() => {
+            document.querySelectorAll('#graphics-grid .product-description').forEach(desc => {
+                desc.classList.add('graphics-product-description');
+            });
+        });
+        const grid = document.getElementById('graphics-grid');
+        if (grid) {
+            observer.observe(grid, { childList: true, subtree: true });
+        }
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+# Arquivos do sistema
+.DS_Store
+Thumbs.db
+
+# Arquivos de ambiente
+.env
+.env.local
+
+# Arquivos de log
+*.log
+
+# Diretórios de dependências
+node_modules/
+.vercel

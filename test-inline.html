@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Direto - Produtos Gráficos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body { margin: 0; padding: 0; }
+        .test-info { 
+            background: #333; 
+            color: white; 
+            padding: 20px; 
+            margin: 20px; 
+            border-radius: 8px; 
+            font-family: Arial;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        <h3>🧪 Teste Direto - Status: <span id="test-status">Iniciando...</span></h3>
+        <div id="test-log"></div>
+    </div>
+
+    <section class="graphics-products" id="graphics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produtos Gráficos</h2>
+                <p class="section-subtitle">Teste de carregamento direto</p>
+            </div>
+            
+            <div class="graphics-filters">
+                <button class="filter-btn active" onclick="filterGraphics('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGraphics('cartoes')">Cartões</button>
+                <button class="filter-btn" onclick="filterGraphics('banners')">Banners</button>
+            </div>
+            
+            <div class="graphics-grid" id="graphics-grid">
+                <!-- Produtos serão carregados aqui -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function updateStatus(message, isError = false) {
+            document.getElementById('test-status').textContent = isError ? '❌ Erro' : '✅ OK';
+            document.getElementById('test-status').style.color = isError ? '#ff6b6b' : '#51cf66';
+            
+            const log = document.getElementById('test-log');
+            log.innerHTML += `<div style="margin: 5px 0; color: ${isError ? '#ff6b6b' : '#51cf66'}">${message}</div>`;
+            
+            console.log(message);
+        }
+
+        // Teste inline dos produtos gráficos
+        updateStatus('🚀 Iniciando teste inline...');
+
+        // Dados de teste (alguns produtos)
+        const testProducts = [
+            {
+                id: 'cartao-visita-simples',
+                name: 'Cartão de Visita Simples',
+                description: 'Cartão de visita simples 8,5x4,7cm - 4x4 cores - 1000 unidades',
+                price: 105.00,
+                originalPrice: 55.00,
+                image: 'IMAGES/CARTAO-VISITA-SIMPLES.png',
+                features: ['4x4 cores', '1000 unidades', '8,5x4,7cm'],
+                category: 'cartoes'
+            },
+            {
+                id: 'banner-lona-brilho',
+                name: 'Banner Lona com Brilho',
+                description: 'Banner em lona com acabamento brilhoso para uso externo',
+                price: 150.00,
+                originalPrice: 100.00,
+                image: 'IMAGES/BANNER-LONA-BRILHO.png',
+                features: ['Uso externo', 'Acabamento brilhoso', 'Resistente'],
+                category: 'banners'
+            }
+        ];
+
+        updateStatus(`📦 ${testProducts.length} produtos de teste carregados`);
+
+        // Função de carregamento inline
+        function loadTestProducts() {
+            const container = document.getElementById('graphics-grid');
+            if (!container) {
+                updateStatus('❌ Container não encontrado', true);
+                return;
+            }
+
+            updateStatus('🎯 Container encontrado, carregando produtos...');
+
+            container.innerHTML = testProducts.map(product => `
+                <div class="graphic-card" data-category="${product.category}">
+                    <div class="graphic-icon">
+                        <div class="product-image-container">
+                            <img src="${product.image}" alt="${product.name}" loading="lazy">
+                        </div>
+                    </div>
+                    <div class="graphic-content">
+                        <h3 class="graphic-title">${product.name}</h3>
+                        <p class="graphic-description">${product.description}</p>
+                        <div class="graphic-features">
+                            ${product.features.map(feature => `<span class="feature-tag">${feature}</span>`).join('')}
+                        </div>
+                        <div class="graphic-pricing">
+                            <div class="price-info">
+                                <span class="current-price">R$ ${product.price.toFixed(2)}</span>
+                                <span class="original-price">R$ ${product.originalPrice.toFixed(2)}</span>
+                            </div>
+                            <div class="quantity-selector">
+                                <button onclick="changeQuantity('${product.id}', -1)">-</button>
+                                <input type="number" id="qty-${product.id}" value="1" min="1" max="99">
+                                <button onclick="changeQuantity('${product.id}', 1)">+</button>
+                            </div>
+                            <button class="add-to-cart-btn" onclick="addToCartWithQuantity('${product.id}', '${product.name}', ${product.price}, document.getElementById('qty-${product.id}').value)">
+                                Adicionar ao Carrinho
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            updateStatus(`🎉 ${testProducts.length} produtos carregados com sucesso!`);
+        }
+
+        // Funções de teste para evitar erros
+        function changeQuantity(productId, change) {
+            const input = document.getElementById(`qty-${productId}`);
+            if (input) {
+                let value = parseInt(input.value) + change;
+                if (value < 1) value = 1;
+                if (value > 99) value = 99;
+                input.value = value;
+            }
+        }
+
+        function addToCartWithQuantity(id, name, price, quantity) {
+            updateStatus(`🛒 Adicionando ${quantity}x ${name} ao carrinho`);
+        }
+
+        function filterGraphics(category) {
+            updateStatus(`🔍 Filtrando por categoria: ${category}`);
+        }
+
+        // Carregar produtos quando DOM estiver pronto
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', loadTestProducts);
+        } else {
+            loadTestProducts();
+        }
+
+        // Verificar se CSS foi aplicado
+        setTimeout(() => {
+            const section = document.querySelector('.graphics-products');
+            if (section) {
+                const styles = window.getComputedStyle(section);
+                const backgroundColor = styles.backgroundColor;
+                const padding = styles.padding;
+                
+                if (backgroundColor !== 'rgba(0, 0, 0, 0)' || padding !== '0px') {
+                    updateStatus('🎨 CSS da seção aplicado corretamente');
+                } else {
+                    updateStatus('⚠️ CSS da seção pode não estar sendo aplicado', true);
+                }
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

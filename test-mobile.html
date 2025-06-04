@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZUOS TECH - Teste Mobile</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+        /* Simulador de dispositivo mobile */
+        .mobile-simulator {
+            max-width: 375px;
+            margin: 20px auto;
+            border: 8px solid #000;
+            border-radius: 25px;
+            padding: 20px 0;
+            background: #000;
+            overflow: hidden;
+        }
+        
+        .device-frame {
+            background: #fff;
+            border-radius: 15px;
+            overflow: hidden;
+            height: 667px;
+        }
+        
+        .test-info {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            z-index: 9999;
+        }
+        
+        /* Reset para simular mobile */
+        .mobile-simulator body {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-info">
+        Teste Mobile Navigation<br>
+        Largura: <span id="width"></span>px<br>
+        Altura: <span id="height"></span>px
+    </div>
+
+    <!-- Header/Navigation -->
+    <header class="header" id="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <h2><i class="fas fa-rocket"></i> AZUOS TECH</h2>
+                </div>
+                <div class="nav-menu" id="nav-menu">
+                    <a href="#home" class="nav-link">Início</a>
+                    <a href="#about" class="nav-link">Sobre Nós</a>
+                    <a href="#services" class="nav-link">Serviços</a>
+                    <a href="#products" class="nav-link">Produtos</a>
+                    <a href="#graphics" class="nav-link">Gráficos</a>
+                    <a href="#contact" class="nav-link">Contato</a>
+                    <div class="cart-icon" onclick="alert('Carrinho funcionando!')">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count" id="cart-count">3</span>
+                    </div>
+                </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home" style="background: linear-gradient(135deg, #00d4ff 0%, #7c3aed 100%); padding: 100px 20px 50px;">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="title-highlight">TESTE MOBILE</span>
+                    <br>Navegação Responsiva
+                </h1>
+                <p class="hero-description">
+                    Teste da navegação mobile para verificar se o menu hamburger está funcionando corretamente em dispositivos móveis.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="alert('Botão 1 funcionando!')">
+                        <i class="fas fa-rocket"></i>
+                        Testar Botão 1
+                    </button>
+                    <button class="btn btn-secondary" onclick="alert('Botão 2 funcionando!')">
+                        <i class="fas fa-download"></i>
+                        Testar Botão 2
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Test Content -->
+    <section style="padding: 50px 20px; background: var(--dark-bg);">
+        <div class="container">
+            <h2 style="color: var(--primary-color); text-align: center; margin-bottom: 30px;">Instruções de Teste</h2>
+            <div style="background: var(--card-bg); padding: 20px; border-radius: 10px; color: var(--text-primary);">
+                <h3>Como testar a navegação mobile:</h3>
+                <ol style="line-height: 2;">
+                    <li>Redimensione a janela do navegador para menos de 1024px de largura</li>
+                    <li>Verifique se o menu hamburger (3 linhas) aparece no canto direito</li>
+                    <li>Clique no menu hamburger para abrir o menu lateral</li>
+                    <li>Teste se os links do menu funcionam</li>
+                    <li>Clique fora do menu para fechá-lo</li>
+                    <li>Teste em diferentes resoluções (768px, 480px)</li>
+                    <li>Teste a orientação landscape em tablets</li>
+                </ol>
+                
+                <h3 style="margin-top: 30px;">Funcionalidades testadas:</h3>
+                <ul style="line-height: 2;">
+                    <li>✅ Menu hamburger responsivo</li>
+                    <li>✅ Touch targets de 44px+ para melhor usabilidade</li>
+                    <li>✅ Menu lateral com backdrop blur</li>
+                    <li>✅ Animações suaves do hamburger</li>
+                    <li>✅ Fechamento automático ao clicar em links</li>
+                    <li>✅ Fechamento ao clicar fora do menu</li>
+                    <li>✅ Prevenção de scroll do body quando menu aberto</li>
+                    <li>✅ Layout otimizado para orientação landscape</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Carregar o JavaScript principal
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Navigation
+            const navToggle = document.getElementById('nav-toggle');
+            const navMenu = document.getElementById('nav-menu');
+            
+            if (navToggle && navMenu) {
+                navToggle.addEventListener('click', () => {
+                    navMenu.classList.toggle('active');
+                    navToggle.classList.toggle('active');
+                    
+                    // Prevent body scroll when menu is open
+                    if (navMenu.classList.contains('active')) {
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Close menu when clicking on links
+                const navLinks = navMenu.querySelectorAll('.nav-link');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    });
+                });
+                
+                // Close menu when clicking outside
+                document.addEventListener('click', (e) => {
+                    if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+                
+                // Handle window resize
+                window.addEventListener('resize', () => {
+                    if (window.innerWidth > 1024) {
+                        navMenu.classList.remove('active');
+                        navToggle.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                    
+                    // Update dimensions display
+                    document.getElementById('width').textContent = window.innerWidth;
+                    document.getElementById('height').textContent = window.innerHeight;
+                });
+            }
+            
+            // Initial dimensions display
+            document.getElementById('width').textContent = window.innerWidth;
+            document.getElementById('height').textContent = window.innerHeight;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Mínimo - Produtos Gráficos</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+        body { margin: 0; padding: 20px; background: #000; color: white; }
+        .debug { background: #333; padding: 10px; margin: 10px 0; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <div class="debug">
+        <h3>🔍 Debug - Teste Mínimo</h3>
+        <p>Este é um teste mínimo para verificar se a seção de produtos gráficos está funcionando.</p>
+    </div>
+
+    <section class="graphics-products" id="graphics">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produtos Gráficos - Teste</h2>
+                <p class="section-subtitle">Teste de carregamento</p>
+            </div>
+            
+            <div class="graphics-filters">
+                <button class="filter-btn active" onclick="filterGraphics('all')">Todos</button>
+                <button class="filter-btn" onclick="filterGraphics('cartoes')">Cartões</button>
+                <button class="filter-btn" onclick="filterGraphics('banners')">Banners</button>
+            </div>
+            
+            <div class="graphics-grid" id="graphics-grid">
+                <div class="debug">Aguardando carregamento dos produtos...</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="debug">
+        <h4>📊 Status de Carregamento:</h4>
+        <div id="debug-info">Iniciando...</div>
+    </div>
+
+    <script>
+        console.log('🚀 Teste mínimo iniciado');
+        
+        // Debug info
+        function updateDebug(msg) {
+            const debugEl = document.getElementById('debug-info');
+            if (debugEl) {
+                debugEl.innerHTML += '<br>' + msg;
+            }
+            console.log(msg);
+        }
+        
+        updateDebug('✅ HTML carregado');
+        
+        // Check if elements exist
+        setTimeout(() => {
+            const container = document.getElementById('graphics-grid');
+            updateDebug(container ? '✅ Container encontrado' : '❌ Container não encontrado');
+            
+            const section = document.getElementById('graphics');
+            updateDebug(section ? '✅ Seção encontrada' : '❌ Seção não encontrada');
+        }, 100);
+    </script>
+
+    <!-- Scripts originais -->
+    <script src="js/cart.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/graphics.js"></script>
+
+    <script>
+        // Debug final
+        setTimeout(() => {
+            const gridItems = document.querySelectorAll('.graphic-card');
+            updateDebug(`📦 Produtos carregados: ${gridItems.length}`);
+            
+            if (gridItems.length === 0) {
+                updateDebug('⚠️ Nenhum produto foi carregado - verificando se JS executou');
+                updateDebug('🔍 Verificando console do navegador para mais detalhes');
+            } else {
+                updateDebug('🎉 Produtos carregados com sucesso!');
+            }
+        }, 2000);
+    </script>
+</body>
+</html>
