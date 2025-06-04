@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel do Administrador - Gerenciar Vendas</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <h1>Painel do Administrador</h1>
+  
+  <section>
+    <h2>Adicionar Nova Venda</h2>
+    <form id="addSaleForm">
+      <label>Cliente: <input type="text" id="cliente" required></label>
+      <label>Produto: <input type="text" id="produto" required></label>
+      <label>Valor: <input type="number" id="valor" required></label>
+      <button type="submit">Adicionar</button>
+    </form>
+  </section>
+  
+  <section>
+    <h2>Vendas Registradas</h2>
+    <table id="salesTable">
+      <thead>
+        <tr>
+          <th>Cliente</th>
+          <th>Produto</th>
+          <th>Valor</th>
+          <th>Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Linhas de vendas aparecerão aqui -->
+      </tbody>
+    </table>
+  </section>
+  
+  <script src="admin.js"></script>
+</body>
+</html>
